@@ -29,6 +29,13 @@ if (vehicle player == player) then {
 			if (!isNull objectParent player) exitWith {};
 			if (surfaceIsWater (getPos player)) exitWith {};
 			if ((damage player) >= 0.5) exitWith {hint "Too much injured for autorun!";};
+			
+			private["_legsHit","_canRun","_allHitPointsDamage","_index"];
+			_legsHit = (vehicle player) getHitPointDamage "HitLegs";
+			_abdHit = (vehicle player) getHitPointDamage "HitAbdomen";
+			_diaphragmHit = (vehicle player) getHitPointDamage "HitDiaphragm";
+			_injured = if (_legsHit > 0.5 || _abdHit > 0.5 || _diaphragmHit > 0.5) then {true} else {false};
+			if ((_injured) exitWith {hint "Too much injured for autorun!";};
 
 			AR_active = true;
 			hint "Autorun Enabled";
