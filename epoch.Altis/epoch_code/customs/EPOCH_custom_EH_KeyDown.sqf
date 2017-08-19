@@ -21,7 +21,7 @@ _handled = false;
  
 if (vehicle player == player) then {
        
-    if (_dikCode == 0x0B) then { 														// Button 0
+    if (_dikCode == 0x0B) then { 	// Button 0
    
         if (isNil "AR_active") then {AR_active = false; hint "Autorun Disabled";};
 			if (AR_active) exitWith {AR_active = false; hint "Autorun Disabled"; _handled = true;};
@@ -75,7 +75,7 @@ if (vehicle player == player) then {
 			_handled = true;
 		};
 		
-		if (_dikCode in [0x11,0x1E,0x1F,0x20,0x2D,0x2E,0x15,0x2C]) then 					// abort on pressing w,a,s,d,y,x,c,z
+		if (_dikCode in [0x11,0x1E,0x1F,0x20,0x2D,0x2E,0x15,0x2C]) then 		// abort on pressing w,a,s,d,y,x,c,z
 				{
 					AR_active = false;				
 				};
