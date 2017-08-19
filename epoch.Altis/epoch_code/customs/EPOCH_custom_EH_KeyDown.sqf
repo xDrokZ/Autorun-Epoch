@@ -21,7 +21,7 @@ _handled = false;
  
 if (vehicle player == player) then {
        
-    if (_dikCode == 0x0B) then {		// button 0
+    if (_dikCode == 0x0B) then { 														// Button 0
    
         if (isNil "AR_active") then {AR_active = false; hint "Autorun Disabled";};
 			if (AR_active) exitWith {AR_active = false; hint "Autorun Disabled"; _handled = true;};
@@ -35,7 +35,7 @@ if (vehicle player == player) then {
 			_abdHit = (vehicle player) getHitPointDamage "HitAbdomen";
 			_diaphragmHit = (vehicle player) getHitPointDamage "HitDiaphragm";
 			_injured = if (_legsHit > 0.5 || _abdHit > 0.5 || _diaphragmHit > 0.5) then {true} else {false};
-			if ((_injured) exitWith {hint "Too much injured for autorun!";};
+			if (_injured) exitWith {hint "Too much injured for autorun!";};
 
 			AR_active = true;
 			hint "Autorun Enabled";
@@ -75,7 +75,7 @@ if (vehicle player == player) then {
 			_handled = true;
 		};
 		
-		if (_dikCode in [0x11,0x1E,0x1F,0x20,0x2D,0x2E,0x15,0x2C]) then		// abort on pressing w,a,s,d,y,x,c,z
+		if (_dikCode in [0x11,0x1E,0x1F,0x20,0x2D,0x2E,0x15,0x2C]) then 					// abort on pressing w,a,s,d,y,x,c,z
 				{
 					AR_active = false;				
 				};
